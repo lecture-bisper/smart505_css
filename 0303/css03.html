@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css 2일차 3번</title>
+
+  <style>
+    /* position : 문서내에 태그를 배치하기 위한 속성 */
+    /* 기준이 되는 위치를 지정하는 방향 속성을 추가로 사용함 */
+    /* top, right, bottom, left 4가지가 존재함 */
+    /* 기본은 left, top이 기본임 */
+    /* 가로 방향은 왼쪽에서 오른쪽으로 이동, 음수 사용 시 반대로 이동 */
+    /* 세로 방향은 위에서 아래로 이동, 음수 사용 시 반대로 이동 */
+
+    /* position 속성이 4가지 존재 */
+    /* static : 기본값, html 태그를 순차적으로 표시함, 태그의 시작 지점이 다른 태그의 종료 지점 */
+    /* relative : 기본적으로 static과 동일함, 방향 속성을 추가로 사용 가능 */
+    /* absolute : 태그의 시작점을 부모 태그의 시작점을 기준으로 하는 방식, 방향 속성을 추가로 사용 가능 */
+      /* absolute 사용 시 반드시 부모 태그의 position을 relative로 설정 */
+    /* fixed : 태그의 시작점을 body 태그의 시작점을 기준으로 하는 방식, 방향 속성을 추가로 사용 가능 */
+
+    .box {
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+    }
+
+    .red { background-color: crimson; }
+    .green { background-color: yellowgreen; }
+    .blue { background-color: royalblue; }
+
+    .relative { position: relative; }
+    .absolute { position: absolute; }
+    .fixed { position: fixed; }
+
+    #div02 .borderbox {
+      border: 10px dashed black;
+      padding: 10px;
+      margin: 10px;
+      background-clip: border-box;
+    }
+
+    #div02 .paddingbox {
+      border: 10px dashed black;
+      padding: 10px;
+      margin: 10px;
+      background-clip: padding-box;
+    }
+
+    #div02 .contentbox {
+      border: 10px dashed black;
+      padding: 10px;
+      margin: 10px;
+      background-clip: content-box;
+    }
+
+    #div02 .bg-img {
+      width: 800px;
+      height: 800px;
+      border: 1px solid black;
+      padding: 10px;
+      margin: 10px;
+      background-image: url("./002.jpg");
+    }
+
+    #div02 .norepeat { background-repeat: no-repeat; }
+
+    #div02 .center {
+      width: 400px;
+      height: 400px;
+      background: url("./002.jpg") no-repeat center center scroll;
+    }
+  </style>
+</head>
+<body>
+  <div id="div01">
+    <h3>position 사용하기</h3>
+
+    <div>
+      <h4>static 사용</h4>
+      <div class="box red"></div>
+      <div class="box green"></div>
+      <div class="box blue"></div>
+    </div>
+
+    <br><br>
+
+    <div>
+      <h4>relative 사용</h4>
+      <div class="box red relative" style="left: 50px; top: 50px;"></div>
+      <div class="box green relative" style="left : -100px;"></div>
+      <div class="box blue relative" style="right: 150px; bottom: 100px;"></div>
+    </div>
+
+    <br><br>
+
+    <h4>absolute 사용</h4>
+    <div style="border: 2px dashed darkkhaki; width: 700px; height: 700px; position: relative;">
+
+      <div class="box red absolute" style="left: 50px; top: 50px;"></div>
+      <div class="box green absolute" style="left: 100px; bottom: 100px;"></div>
+      <div class="box blue absolute" style="right: 150px; top: 150px;"></div>
+    </div>
+
+    <br><br>
+
+    <div>
+      <h4>fixed 사용</h4>
+
+      <div class="box blue fixed" style="bottom: 100px; right: 100px;"></div>
+    </div>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div02">
+    <h3>background 사용</h3>
+
+    <div>
+      <h4>background-color 사용</h4>
+      <div class="box blue"></div>
+    </div>
+
+    <br>
+
+    <div>
+      <h4>background-clip 사용</h4>
+
+      <div class="box red borderbox"></div>
+      <div class="box green paddingbox"></div>
+      <div class="box blue contentbox"></div>
+    </div>
+
+    <br>
+    
+    <div>
+      <h4>background-image 사용</h4>
+      <div class="bg-img">
+        <div class="box blue relative" style="left: 100px; top: 100px;"></div>
+        <div class="box green relative" style="left: 200px; top: 400px;"></div>
+      </div>
+    </div>
+
+    <br>
+
+    <div>
+      <h4>no-repeat 사용</h4>
+      <div class="bg-img" style="background-repeat: no-repeat;"></div>
+    </div>
+
+    <br>
+
+    <div>
+      <h4>repeat-x 사용</h4>
+      <div class="bg-img" style="background-repeat: repeat-x;"></div>
+    </div>
+
+    <br>
+
+    <div>
+      <h4>repeat-y 사용</h4>
+      <div class="bg-img" style="background-repeat: repeat-y;"></div>
+    </div>
+
+    <br>
+
+    <div>
+      <h4>background-position 사용</h4>
+      <div class="bg-img norepeat" style="background-position: left top;"></div>
+      <div class="bg-img norepeat" style="background-position: right bottom;"></div>
+      <div class="bg-img norepeat" style="background-position: center center;"></div>
+      <div class="bg-img norepeat" style="background-position: 50% 50%;"></div>
+      <div class="bg-img norepeat" style="background-position: 100px 100px;"></div>
+    </div>
+
+    <br>
+
+    <div>
+      <h4>background-attachment 사용</h4>
+
+      <div class="bg-img norepeat" style="background-attachment: fixed; overflow-y: scroll; height: 400px;">
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+        <h1>스크롤 시 그대로 위치가 그대로 있는 배경이미지</h1>
+      </div>
+    </div>
+
+    <br>
+
+    <div>
+      <h4>background 통합 속성 사용하기</h4>
+
+      <div class="bg-img" style="background: url('./003.jpg') no-repeat center center scroll"></div>
+    </div>
+
+    <br>
+
+    <div>
+      <h4>background-size 사용하기</h4>
+
+      <div class="bg-img norepeat center" style="background-size: auto"></div>
+      <div class="bg-img norepeat center" style="background-size: contain"></div>
+      <div class="bg-img norepeat center" style="background-size: cover"></div>
+      <div class="bg-img norepeat center" style="background-size: 200px 200px"></div>
+      <div class="bg-img norepeat center" style="background-size: 300% 300%"></div>
+    </div>
+
+  </div>
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
