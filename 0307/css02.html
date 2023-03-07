@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS3일차 2번 파일</title>
+
+  <style>
+    #div01 .navi ul li {
+      float: left;
+      width: 150px;
+      padding: 10px;
+      list-style-type: none;
+    }
+
+    #div01 .navi ul::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    #div01 .navi a:link, #div01 .navi a:visited {
+      display: block;
+      font-size: 14px;
+      color: #000;
+      padding: 10px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    #div01 .navi a:hover, #div01 .navi a:focus {
+      background-color: #222;
+      color: #fff;
+    }
+
+    #div01 .navi a:active {
+      background-color: #f00;
+    }
+
+    #div01 > div { font-size: 2em; }
+
+    #div01 > div a:link {
+      background-color:tomato;
+    }
+
+    #div01 > div a:visited {
+      background-color:darkgrey;
+    }
+
+    #div01 > div input { font-size: 2em; }
+    #div01 > div input:focus { background-color: lightskyblue; }
+
+    #div02 > .navi ul {
+      list-style-type: none;
+      padding: 10px;
+    }
+
+    #div02 > .navi ul::after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+
+    #div02 > .navi li {
+      float: left;
+      margin: 10px;
+    }
+
+    #div02 .navi a:link, #div02 .navi a:visited {
+      display: block;
+      font-size: 14px;
+      color: #000;
+      padding: 10px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    #div02 .navi a:hover, #div02 .navi a:focus {
+      background-color: #222;
+      color: #fff;
+    }
+
+    #intro:target {
+      background-color: #0069e0;
+      color: #FFF;
+    }
+
+    #div02 > .contents {
+      width: 500px;
+      height: 200px;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+
+    #div03 input:checked + label {
+      color: red;
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+
+    #div03 button:enabled {
+      background-color: coral;
+      color: blue;
+      font-size: 2em;
+    }
+
+    #div03 button:disabled {
+      background-color: gray;
+      color: black;
+      font-size: 1em;
+    }
+
+    #div04 table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #div04 td, #div04 th {
+      border: 1px solid lightgray;
+      text-align: start;
+      padding: 8px;
+    }
+
+    /* nth-child 가상 클래스에 even 사용 시 짝수 줄에 스타일 적용, odd 사용 시 홀수 줄에 스타일 적용 */
+    #div04 tbody > tr:nth-child(odd) {
+      background-color: lightgray;
+    }
+
+    #div05 li.new::after {
+      content: "new!!";
+      font-size: x-small;
+      padding: 2px 4px;
+      margin: 0 10px;
+      border-radius: 2px;
+      background-color: red;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="div01">
+    <h3>가상클래스 사용하기</h3>
+
+    <nav class="navi">
+      <ul>
+        <li><a href="#">이용 안내</a></li>
+        <li><a href="http://www.naver.com">객실 소개</a></li>
+        <li><a href="#">예약 방법 및 요금</a></li>
+        <li><a href="#">예약하기</a></li>
+      </ul>
+    </nav>
+
+    <br>
+
+    <div>
+      <a href="http://www.daum.net">다음홈페이지</a><br>
+      <a href="http://www.naver.com">네이버 홈페이지</a><br>
+      <label for="test">focus 테스트</label>
+      <input type="text" id="test"><br>
+    </div>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div02">
+    <h3>:target 선택자</h3>
+    <nav class="navi">
+      <ul>
+        <li><a href="#intro">이용 안내</a></li>
+        <li><a href="#room">객실 소개</a></li>
+        <li><a href="#reservation">예약 방법 및 요금</a></li>
+        <li><a href="css03.html">예약하기</a></li>
+      </ul>
+    </nav>
+
+    <div id="intro" class="contents">
+      <h2>이용 안내</h2>
+      <p>메뉴 클릭 시 스타일이 변경될 부분</p>
+    </div>
+
+    <div id="room" class="contents">
+      <h2>객실 소개</h2>
+      <p>기본 스타일을 적용할 부분</p>
+    </div>
+
+    <div id="reservation" class="contents">
+      <h2>예약 방법 및 요금</h2>
+      <p>기본 스타일을 적용할 부분</p>
+    </div>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div03">
+    <h3>상태에 따른 가상 선택자</h3>
+
+    <ul>
+      <li>
+        <input type="radio" name="room" id="basic" checked>
+        <label for="basic">기본형(최대 2인)</label>
+      </li>
+      <li>
+        <input type="radio" name="room" id="family">
+        <label for="family">가족형(최대 8인)</label>
+      </li>
+      <li>
+        <button type="button">활성화된 버튼</button>
+        <button type="button" disabled>비활성화된 버튼</button>
+      </li>
+    </ul>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div04">
+    <h3>문서구조에 따른 가상 클래스 선택자</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>이름</th>
+          <th>직업</th>
+          <th>성별</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>아이유</td>
+          <td>가수</td>
+          <td>여성</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>유인나</td>
+          <td>배우</td>
+          <td>여성</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>유재석</td>
+          <td>방송인</td>
+          <td>남성</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>유병재</td>
+          <td>방송인</td>
+          <td>남성</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div05">
+    <h3>가상 요소 사용하기</h3>
+
+    <div class="container">
+      <h1>제품 목록</h1>
+      <ul>
+        <li class="new">제품 A</li>
+        <li>제품 B</li>
+        <li>제품 C</li>
+        <li class="new">제품 D</li>
+      </ul>
+    </div>
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
