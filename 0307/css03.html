@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 3일차 3번파일</title>
+
+  <style>
+    .container {
+      border: 2px solid black;
+      padding: 5px;
+      margin: 10px;
+      width: 300px;
+      height: 200px;
+    }
+
+    .box {
+      background-color: orange;
+      width: 100%;
+      height: 100%;
+    }
+    
+    #div01 .movex:hover { transform: translateX(100px); }
+    #div01 .movey:hover { transform: translateY(100px); }
+    #div01 .movexy:hover { transform: translate(100px, 100px); }
+
+    #div02 .scalex:hover { transform: scaleX(200%); }
+    #div02 .scaley:hover { transform: scaleY(200%); background-color: brown;}
+    #div02 .scalexy:hover { transform: scale(200%, 200%); background-color: cornflowerblue;}
+
+    #div03 .rotate45:hover { transform: rotate(45deg); }
+    #div03 .rotate270:hover { transform: rotate(-30deg); }
+    #div03 .rotate3dx:hover { transform: rotateX(50deg);}
+    #div03 .rotate3dy:hover { transform: rotateY(50deg);}
+    #div03 .rotate3dz:hover { transform: rotateZ(50deg);}
+
+    #div04 .skewx:hover { transform: skewX(30deg); }
+    #div04 .skewy:hover { transform: skewY(30deg); }
+
+    #div05 .container {
+      transition-property: width;
+      transition-duration: 3s;
+      transition-timing-function: ease;
+      transition-delay: 0.2s;
+    }
+
+    #div05 .container:hover { width: 600px; }
+
+    #div06 .ani1 {
+      animation-duration: 3s;
+      animation-name: colorChange;
+      animation-direction: alternate;
+      animation-iteration-count: 4;
+      animation-timing-function: linear;
+    }
+
+    #div06 .ani2 {
+      position: relative;
+      animation-name: colorChange2;
+      animation-duration: 5s;
+      animation-timing-function: ease;
+      animation-delay: 1s;
+    }
+
+    @keyframes colorChange {
+      form {
+        background-color: orange;
+      }
+      to {
+        background-color: darkblue;
+      }
+    }
+
+    @keyframes colorChange2 {
+      0% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+      }
+      25% {
+        background-color: yellow;
+        left: 500px;
+        top: 0px;
+      }
+      50% {
+        background-color: blue;
+        left: 500px;
+        top: 200px;
+      }
+      75% {
+        background-color: green;
+        left: 0px;
+        top: 200px;
+      }
+      100% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="div01">
+    <h3>translate 사용</h3>
+
+    <div class="container">
+      <div class="box movex"></div>
+    </div>
+    <div class="container">
+      <div class="box movey"></div>
+    </div>
+    <div class="container">
+      <div class="box movexy"></div>
+    </div>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div02">
+    <h3>scale 사용</h3>
+
+    <div class="container">
+      <div class="box scalex"></div>
+    </div>
+    <div class="container">
+      <div class="box scaley"></div>
+    </div>
+    <div class="container">
+      <div class="box scalexy"></div>
+    </div>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div03">
+    <h3>rotate 사용</h3>
+
+    <div class="container">
+      <div class="box rotate45"></div>
+    </div>
+    <div class="container">
+      <div class="box rotate270"></div>
+    </div>
+    <div class="container">
+      <div class="box rotate3dx"></div>
+    </div>
+    <div class="container">
+      <div class="box rotate3dy"></div>
+    </div>
+    <div class="container">
+      <div class="box rotate3dz"></div>
+    </div>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div04">
+    <h3>skew 사용하기</h3>
+    <div class="container">
+      <div class="box skewx"></div>
+    </div>
+    <div class="container">
+      <div class="box skewy"></div>
+    </div>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div05">
+    <h3>transition 사용하기</h3>
+    <div class="container">
+      <div class="box"></div>
+    </div>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div06">
+    <h3>animation 사용하기</h3>
+
+    <div class="container">
+      <div class="box ani1"></div>
+    </div>
+    <div class="container">
+      <div class="box ani2"></div>
+    </div>
+  </div>
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
