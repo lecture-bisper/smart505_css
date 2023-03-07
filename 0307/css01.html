@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 3일차 1번</title>
+
+  <style>
+    /* 인접 형제 선택자로 p 태그를 선택 */
+    #div01 > h1 + p {
+      background-color: #222;
+      color: #fff;
+    }
+
+    /* 인접 형제 선택자로 h4를 선택했지만 h4가 h1바로 다음에 있는 것이 아니기 때문에 선택되지 않음 */
+    #div01 > h1 + h4 {
+      background-color: cadetblue;
+      color: #000;
+    }
+
+    /* 형제 선택자로 색상 변경 */
+    #div01 > h1 ~ p {
+      color: blue;
+    }
+
+
+    /* id값이 div02인 태그의 자식 태그 중 class값이 ul1인 태그의 자손 태그 중 a인 태그가 가지고 있는 속성 중 href가 있는지 여부를 확인하여 스타일을 적용 */
+    #div02 > .ul1 a[href] {
+      background: yellow;
+      border: 1px solid #ccc;
+      font-weight: normal;
+      text-decoration: none;
+    }
+
+    /* id값이 div02인 태그의 자식 태그 중 class값이 ul2인 태그의 자손 태그 중 a인 태그가 가지고 있는 속성 중 href값이 _blank인 태그에만 스타일을 적용 */
+    #div02 > .ul2 a[target="_blank"] {
+      padding-right: 30px;
+      background: url("003.jpg") no-repeat center right;
+    }
+
+    /* class값이 ul3인 태그의 자손 태그 중 a 태그를 선택하고 해당 태그 중 class 속성값에 button이 포함된 태그만 선택 */
+
+    #div02 > .ul3 {
+      list-style-type: none;
+    }
+
+    #div02 > .ul3::after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+
+    #div02 > .ul3 > li {
+      float: left;
+      margin: 5px;
+      padding: 5px;
+    }
+
+    #div02 > .ul3 a[class~="button"] {
+      border: 1px solid black;
+      box-shadow: 4px 4px rgba(0, 0, 0, 0.4);
+      border-radius: 5px;
+    }
+
+    #div02 > .ul4 a[title|="us"] { background-color: cornflowerblue; }
+    #div02 > .ul4 a[title|="jap"] { background-color: crimson; }
+    #div02 > .ul4 a[title|="chn"] { background-color: greenyellow; }
+    #div02 > .ul4 a[title~="ko"] { background-color: khaki; }
+
+    #div02 > .ul5 a[title^="eng"] { background-color: coral; }
+    #div02 > .ul5 a[title^="jap"] { background-color: cadetblue; }
+    #div02 > .ul5 a[title^="chin"] { background-color: yellowgreen; }
+
+    #div02 > .ul6 a[href$="hwp"] { background-color: #ccc; }
+    #div02 > .ul6 a[href$="docx"] { background-color: darkorange; }
+    #div02 > .ul6 a[href$="xlsx"] { background-color: violet; }
+
+    #div02 > .ul7 a[href*="um"] {
+      background-color: forestgreen;
+      font-size: 2em;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="div01">
+    <h3>인접 형제 선택자 사용</h3>
+
+    <h1>예약 방법 & 이용 요금</h1>
+    <p>아직 온라인 예약....</p>
+    <h4>가족실 (2 ~ 4인) : 60,000원/일</h4>
+    <p>도모토리(4인 공용) : 25,000원/일</p>
+    <div>
+      <!-- 형제 선택자로는 선택되지 않는 p 태그 -->
+      <p>div01의 자손 태그인 p 태그</p>
+    </div>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div02">
+    <h3>속성 선택자 사용</h3>
+
+    <ul class="ul1">
+      <li><a>메인 메뉴</a></li>
+      <li><a href="#">메뉴 1</a></li>
+      <li><a href="#">메뉴 2</a></li>
+      <li><a href="#">메뉴 3</a></li>
+      <li><a href="#">메뉴 4</a></li>
+    </ul>
+
+    <br>
+
+    <ul class="ul2">
+      <li><a href="http://www.google.co.kr" target="_blank">Google</a></li>
+      <li><a href="http://www.daum.net" target="_self">Daum</a></li>
+      <li><a href="http://www.naver.com" target="_top">Naver</a></li>
+    </ul>
+
+    <br>
+
+    <ul class="ul3">
+      <li><a href="#" class="flat">메뉴 1</a></li>
+      <li><a href="#" class="flat">메뉴 2</a></li>
+      <li><a href="#" class="button">메뉴 3</a></li>
+      <li><a href="#" class="flat button">메뉴 4</a></li>
+    </ul>
+
+    <br>
+
+    <ul class="ul4">
+      <li><a href="#" title="us-english">영어</a></li>
+      <li><a href="#" title="ja">일본어</a></li>
+      <li><a href="#" title="chn">중국어</a></li>
+      <li><a href="#" title="ko-kr">한국어</a></li>
+    </ul>
+
+    <br>
+
+    <ul class="ul5">
+      <li><a href="#" title="us-english">영어</a></li>
+      <li><a href="#" title="japanese">일본어</a></li>
+      <li><a href="#" title="chinese">중국어</a></li>
+    </ul>
+
+    <br>
+    
+    <div class="ul6">
+      <li><a href="intro.hwp">hwp 파일</a></li>
+      <li><a href="intro.docx">docx 파일</a></li>
+      <li><a href="intro.xls">xls 파일</a></li>
+    </div>
+
+    <br>
+
+    <ul class="ul7">
+      <li><a href="http://www.naver.com">네이버 홈페이지</a></li>
+      <li><a href="http://google.co.kr">구글 홈페이지</a></li>
+      <li><a href="http://daum.net">다음 홈페이지</a></li>
+    </ul>
+  </div>
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
