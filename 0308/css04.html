@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 4일차 4번파일</title>
+
+  <style>
+    .container, .container2, .container3 {
+      width: 700px;
+      background-color: #EEE;
+      border: 1px solid #222;
+      display: flex;
+    }
+
+    .container2 {
+      height: 150px;
+    }
+
+    .container3 {
+      width: 400px;
+      height: 400px;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .box {
+      padding: 5px 45px;
+      margin: 5px;
+      width: 80px;
+      background-color: #222;
+    }
+
+    .box > p {
+      color: white;
+      text-align: center;
+    }
+
+    #div01 .opt1 { flex-direction: row; }
+    #div01 .opt2 { flex-direction: row-reverse; }
+    #div01 .opt3 { flex-direction: column; }
+    #div01 .opt4 { flex-direction: column-reverse; }
+
+    #div02 .opt1 { flex-wrap: nowrap; }
+    #div02 .opt2 { flex-wrap: wrap; }
+    #div02 .opt3 { flex-wrap: wrap-reverse; }
+
+    #div03 .opt1 { flex-flow: row nowrap; }
+    #div03 .opt2 { flex-flow: row-reverse nowrap; }
+    #div03 .opt3 { flex-flow: row wrap; }
+    #div03 .opt4 { flex-flow: row-reverse wrap; }
+
+    #div04 .opt1 { justify-content: flex-start; }
+    #div04 .opt2 { justify-content: center; }
+    #div04 .opt3 { justify-content: flex-end; }
+    #div04 .opt4 { justify-content: space-between; }
+    #div04 .opt5 { justify-content: space-around; }
+
+    #div05 .opt1 { align-items: flex-start; }
+    #div05 .opt2 { align-items: center; }
+    #div05 .opt3 { align-items: flex-end; }
+    #div05 .opt4 { align-items: baseline; }
+    #div05 .opt5 { align-items: stretch; }
+
+    #div06 .opt1 { align-items: flex-end; }
+    #div06 .opt2 { align-items: flex-start; }
+    #div06 .opt3 { align-items: flex-start; }
+    #div06 .opt4 { align-items: flex-start; }
+    #div06 .opt5 { align-items: flex-start; }
+
+    #div07 .opt1 { align-content: flex-start; }
+    #div07 .opt2 { align-content: center; }
+    #div07 .opt3 { align-content: flex-end; }
+    #div07 .opt4 { align-content: space-between; }
+    #div07 .opt5 { align-content: space-around; }
+    #div07 .opt6 { align-content: stretch; }
+
+    #div08 .container4 {
+      height: 400px;
+      background-color: dodgerblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #div08 .container4 > div {
+      background-color: white;
+      border: 1px solid black;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div id="div01">
+    <h3>flex box 사용하기</h3>
+    
+    <h4>flex-direction : row </h4>
+    <div class="container opt1">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+    </div>
+
+    <br>
+    
+    <h4>flex-direction : row-reverse</h4>
+    <div class="container opt2">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+    </div>
+
+    <br>
+    
+    <h4>flex-direction : column</h4>
+    <div class="container opt3">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+    </div>
+
+    <br>
+
+    <h4>flex-direction : column-reverse</h4>
+    <div class="container opt4">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+    </div>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div02">
+    <h3>flex-wrap</h3>
+
+    <h4>flex-wrap : nowrap</h4>
+    <div class="container opt1">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+      <div class="box"><p>6</p></div>
+    </div>
+    <br>
+    <h4>flex-wrap : wrap</h4>
+    <div class="container opt2">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+      <div class="box"><p>6</p></div>
+    </div>
+    <br>
+    <h4>flex-wrap : wrap-reverse</h4>
+    <div class="container opt3">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+      <div class="box"><p>6</p></div>
+    </div>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div03">
+    <h3>flex-flow 사용하기</h3>
+
+    <h4>row nowrap</h4>
+    <div class="container opt1">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+      <div class="box"><p>6</p></div>
+    </div>
+
+    <br>
+
+    <h4>row-reverse nowrap</h4>
+    <div class="container opt2">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+      <div class="box"><p>6</p></div>
+    </div>
+
+    <br>
+
+    <h4>row wrap</h4>
+    <div class="container opt3">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+      <div class="box"><p>6</p></div>
+    </div>
+
+    <br>
+
+    <h4>row-reverse wrap</h4>
+    <div class="container opt4">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+      <div class="box"><p>6</p></div>
+    </div>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div04">
+    <h3>justify-content 사용하기</h3>
+
+    <h4>flex-start</h4>
+    <div class="container opt1" style="width: 100%;">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+    </div>
+
+    <br>
+
+    <h4>center</h4>
+    <div class="container opt2" style="width: 100%;">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+    </div>
+
+    <br>
+
+    <h4>flex-end</h4>
+    <div class="container opt3" style="width: 100%;">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+    </div>
+
+    <br>
+
+    <h4>space-between</h4>
+    <div class="container opt4" style="width: 100%;">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+    </div>
+
+    <br>
+
+    <h4>space-around</h4>
+    <div class="container opt5" style="width: 100%;">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+    </div>
+  </div>
+
+  
+  <br><hr><br>
+
+  <div id="div05">
+    <h3>align-items 사용하기</h3>
+
+    <br>
+    <h4>flex-start</h4>
+    <div class="container2 opt1">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+    </div>
+    <br>
+    <h4>center</h4>
+    <div class="container2 opt2">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+    </div>
+    <br>
+    <h4>flex-end</h4>
+    <div class="container2 opt3">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+    </div>
+    <br>
+    <h4>baseline</h4>
+    <div class="container2 opt4">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p style="font-size: 0.5em">2</p></div>
+      <div class="box"><p style="font-size: 1.5em">3</p></div>
+      <div class="box"><p style="font-size: 2em">4</p></div>
+    </div>
+    <br>
+    <h4>stretch</h4>
+    <div class="container2 opt5">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+    </div>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div06">
+    <h3>align-self 사용하기</h3>
+
+    <br>
+    <h4>flex-start</h4>
+    <div class="container2 opt1">
+      <div class="box"><p>1</p></div>
+      <div class="box" style="align-self: flex-start;"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+    </div>
+    <br>
+    <h4>center</h4>
+    <div class="container2 opt2">
+      <div class="box"><p>1</p></div>
+      <div class="box" style="align-self: center;"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+    </div>
+    <br>
+    <h4>flex-end</h4>
+    <div class="container2 opt3">
+      <div class="box"><p>1</p></div>
+      <div class="box" style="align-self: flex-end;"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+    </div>
+    <br>
+    <h4>baseline</h4>
+    <div class="container2 opt4">
+      <div class="box"><p>1</p></div>
+      <div class="box" style="align-self: baseline;"><p style="font-size: 0.5em">2</p></div>
+      <div class="box" style="align-self: baseline;"><p style="font-size: 1.5em">3</p></div>
+      <div class="box"><p style="font-size: 2em">4</p></div>
+    </div>
+    <br>
+    <h4>stretch</h4>
+    <div class="container2 opt5">
+      <div class="box"><p>1</p></div>
+      <div class="box"  style="align-self: stretch;"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+    </div>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div07">
+    <h3>align-content 사용하기</h3>
+
+    <br>
+    <h4>flex-start</h4>
+    <div class="container3 opt1">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+      <div class="box"><p>6</p></div>
+    </div>
+
+    <br>
+    <h4>center</h4>
+    <div class="container3 opt2">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+      <div class="box"><p>6</p></div>
+    </div>
+
+    <br>
+    <h4>flex-end</h4>
+    <div class="container3 opt3">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+      <div class="box"><p>6</p></div>
+    </div>
+
+    <br>
+    <h4>space-between</h4>
+    <div class="container3 opt4">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+      <div class="box"><p>6</p></div>
+    </div>
+
+    <br>
+    <h4>space-around</h4>
+    <div class="container3 opt5">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+      <div class="box"><p>6</p></div>
+    </div>
+
+    <br>
+    <h4>stretch</h4>
+    <div class="container3 opt6">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+      <div class="box"><p>6</p></div>
+    </div>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div08">
+    <h3>flexbox를 사용하여 화면 중앙에 위치 시키기</h3>
+
+    <div class="container4">
+      <div></div>
+    </div>
+  </div>
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
