@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css 4일차 3번파일</title>
+  
+  <style>
+    body {
+      background: url("./bg0.jpg") no-repeat fixed;
+      background-size: cover;
+    }
+
+    /* 미디어쿼리를 여러개 사용하여 여러가지 화면 크기에 맞게 대응할 수 있음 */
+    @media screen and (max-width: 1024px) {
+      body {
+        background: url("./bg1.jpg") no-repeat fixed;
+        background-size: cover;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        background: url("./bg2.jpg") no-repeat fixed;
+        background-size: cover;
+      }
+    }
+
+    @media screen and (max-width: 480px){
+      body {
+        background: url("./bg3.jpg") no-repeat fixed;
+        background-size: cover;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+</body>
+</html>
