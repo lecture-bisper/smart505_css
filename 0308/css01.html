@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS4일차 1번 파일</title>
+
+  <style>
+    #div01 > h1 {
+      font-size: 5vw;
+      text-align: center;
+    }
+
+    #div02 { background-color: deepskyblue; }
+    #div02 > div {
+      height: 200px;
+    }
+
+    @media screen and (min-width: 700px) {
+      #div02 { background-color: hotpink; }
+    }
+  </style>
+</head>
+<body>
+  <div id="div01">
+    <h3>뷰포트를 사용하여 글자 크기 조절하기</h3>
+
+    <h1>안녕하세요..</h1>
+  </div>
+
+  <br><hr><br>
+
+  <div id="div02">
+    <h3>미디어 쿼리 사용하기</h3>
+
+    <div>
+      <p>개발자 모드를 사용하여 화면 크기를 조절해 보세요</p>
+    </div>
+  </div>
+</body>
+</html>
